@@ -42,7 +42,7 @@ function addName(req, res, next) {
 server.use(function (req, res, next) {
     res
       .status(404)
-      .json({ message: "Oops, didn't find what you are looking for" })
+      .json({ message: "Oops, didn't find what you are looking for" }) // working on insomnia
     next();
   });
 
