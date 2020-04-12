@@ -6,7 +6,7 @@ module.exports = {
     client: "sqlite3", // db driver
     connection: {
       // could be an obj or string
-      filename: "./data/car-market.db3", // same level as package.json - only one dot
+      filename: "./data/car-dealer.db3", // same level as package.json - only one dot
     },
     useNullAsDefault: true, // only needed for SQLite
 
