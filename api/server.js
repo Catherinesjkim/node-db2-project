@@ -1,15 +1,16 @@
 // Write endpoints to support CREATE and READ operations on the cars resource.
 const express = require("express"); // npm i express
-const carsRouter = require("../cars/car-router.js");
+const helmet = require('helmet');
+
+const carsRouter = require("../cars/cars-router.js");
 const mw = require('./middleware.js');
 const logger = mw.logger;
-const helmet = require('helmet');
 
 const server = express();
 
 server.use(helmet());
 server.use(express.json()); 
-server.use(logger);
+server.use(logger); 
 
 server.get("/api", (req, res) => {
   const environment = process.env;
@@ -44,6 +45,5 @@ server.use(function (req, res, next) {
       .json({ message: "Oops, didn't find what you are looking for" })
     next();
   });
-
 
 module.exports = server;

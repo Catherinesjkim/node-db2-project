@@ -6,12 +6,12 @@ exports.up = function(knex) {
   return knex.schema.createTable('cars', tbl => { 
     // remember to "return" the call to knex.schema
     // a primary key, named id, type integer, autoincrement
-    tbl.increments(); // PK - method from knex
+    tbl.increments('id'); // PK - method from knex
 
-    tbl.string('vin', 17) // varchar
+    tbl.integer('vin', 17) // varchar
       .unique() // constraint - watchdog - chainable
       .index() // chainable
-      .notNullable(); // chinable
+      .notNullable(); // chainable
 
     tbl.string('make', 255)
       .notNullable();
@@ -35,3 +35,5 @@ exports.down = function(knex) { // cmmd + z for the table structure
   // remove (drop) the cars table
   return knex.schema.dropTableIfExists('cars');
 };
+
+// migrations are only for the schema, not data.
